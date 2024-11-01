@@ -1,17 +1,23 @@
 package com.abadzheva.secretmessage
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.abadzheva.secretmessage.databinding.FragmentWelcomeBinding
 
-class WelcomeFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
+    private val binding by viewBinding(FragmentWelcomeBinding::bind)
+
+    override fun onViewCreated(
+        view: View,
         savedInstanceState: Bundle?,
-    ): View? {
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.start.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_messageFragment)
+        }
     }
 }
