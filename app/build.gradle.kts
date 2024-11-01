@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.abadzheva.secretmessage"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.abadzheva.secretmessage"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -59,4 +63,5 @@ dependencies {
 
     // Testing Navigation
     androidTestImplementation(libs.androidx.navigation.testing)
+    implementation(libs.viewbindingpropertydelegate.noreflection)
 }
