@@ -63,5 +63,6 @@ dependencies {
 
     // Testing Navigation
     androidTestImplementation(libs.androidx.navigation.testing)
+
     implementation(libs.viewbindingpropertydelegate.noreflection)
 }

@@ -14,5 +14,7 @@ class EncryptFragment : Fragment(R.layout.fragment_encrypt) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+        val message = EncryptFragmentArgs.fromBundle(requireArguments()).message
+        binding.encryptedMessage.text = message.reversed()
     }
 }

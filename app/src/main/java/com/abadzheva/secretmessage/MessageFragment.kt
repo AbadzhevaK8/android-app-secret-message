@@ -15,8 +15,13 @@ class MessageFragment : Fragment(R.layout.fragment_message) {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.next.setOnClickListener {
-            findNavController().navigate(R.id.action_messageFragment_to_encryptFragment)
+            val message = binding.message.text.toString()
+            val action =
+                MessageFragmentDirections
+                    .actionMessageFragmentToEncryptFragment(message)
+            findNavController().navigate(action)
         }
     }
 }
